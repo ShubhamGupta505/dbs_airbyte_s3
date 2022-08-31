@@ -1,0 +1,31 @@
+# mongod.conf
+
+net:
+  bindIp: 0.0.0.0
+  port: 27017
+
+security:
+  authorization: enabled
+
+--------------------------------------
+
+
+mongo
+
+db.createUser(
+{
+user: "admin",
+pwd: "admin",
+roles: [ { role: "userAdminAnyDatabase", db: "admin" },
+{ role: "dbAdminAnyDatabase", db: "admin" },
+{ role: "readWriteAnyDatabase", db: "admin" } ]
+}
+)
+
+
+use mydb
+
+db.colors.insert([
+{ _id : 1005, first_name : 'Bob', last_name : 'Hopper', email : 'thebob@example.com' }
+]);
+

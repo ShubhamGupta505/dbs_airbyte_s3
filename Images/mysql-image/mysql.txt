@@ -1,0 +1,17 @@
+server-id=223344
+log-bin=bin.log
+log-bin-index=bin-log.index
+max_binlog_size=10
+
+
+
+CREATE USER 'airbyte'@'%' IDENTIFIED BY 'your_password_here';
+GRANT SELECT ON <database name>.* TO 'airbyte'@'%';
+GRANT SELECT, RELOAD, SHOW DATABASES, REPLICATION SLAVE, REPLICATION CLIENT ON *.* TO 'airbyte'@'%';
+
+
+
+
+
+
+truncate table orders;
