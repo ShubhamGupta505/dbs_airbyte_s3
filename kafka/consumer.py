@@ -5,6 +5,11 @@ import json
 import pandas as pd
 import boto3
 from pandasql import sqldf
+import os
+
+aws_access_key = os.environ['aws_access_key']
+aws_secret_key = os.environ['aws_secret_key']
+
 
 if __name__=='__main__':
     consumer = KafkaConsumer(bootstrap_servers=['broker0:19092'],auto_offset_reset='earliest')
@@ -33,6 +38,6 @@ if __name__=='__main__':
         main_data3 = sqldf(q2,globals())
         # print(main_data3)
         main_data3.to_parquet("/home/appuser/files/main_data.parquet")
-        session = boto3.Session(aws_access_key_id='aws_access_key',aws_secret_access_key='aws_secret_key')
+        session = boto3.Session(aws_access_key_id=aws_access_key,aws_secret_access_key=aws_secret_key)
         s3 = session.resource('s3')
         s3.Bucket('bucket_name').upload_file("/home/appuser/files/main_data.parquet",'main_data.parquet')
