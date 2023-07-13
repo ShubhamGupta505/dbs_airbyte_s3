@@ -10,12 +10,10 @@ docker-compose up -d
 
 # docker exec -it kafka /bin/bash
 
-docker exec -it kafka pip install kafka-python
-docker exec -it kafka wget https://bootstrap.pypa.io/pip/2.7/get-pip.py
-docker exec -it kafka python get-pip.py
-docker exec -it kafka pip install --upgrade setuptools
-docker exec -it kafka pip install pandas
-docker exec -it kafka pip install pyarrow
-docker exec -it kafka pip install pandasql
-docker exec -it kafka pip install boto3
-docker exec -it kafka python /home/consumer.py
+docker exec -it kafka1 pip3 install kafka-python
+docker exec -it kafka1 pip3 install pandas
+docker exec -it kafka1 pip3 install pyarrow
+docker exec -it kafka1 pip3 install pandasql
+docker exec -it kafka1 pip3 install boto3
+docker exec -it kafka1 touch /home/appuser/files/data.csv
+docker exec -it kafka1 python /home/consumer.py
