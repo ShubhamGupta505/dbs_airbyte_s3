@@ -54,7 +54,8 @@ cd dbs_airbyte_s3-main
 give all means 777 permission to ./kafka/image_data for getting data in local system
 ```bash
 sudo chmod 777 ./kafka/image_data 
-```(You have to type this command in your local or where you run this code in terminal)
+```
+(You have to type this command in your local or where you run this code in terminal)
 
 Before running script,
   First you have to update <b>aws_access_key</b> and <b>aws_secret_key</b> in <b>.env</b> file where variable is set.
